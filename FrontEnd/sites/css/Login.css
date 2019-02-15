@@ -1,0 +1,33 @@
+form{
+    width: 300px;
+    background-color: rgb(92, 195, 255);
+    border: 2px;
+    border-style: solid;
+}
+
+html, body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.padding1{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.padding2{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.CP{
+    display: table;
+    height: 30%;
+    margin: 0 auto;
+}
+
+.P{
+    display: table-cell;
+    vertical-align: middle;
+}
