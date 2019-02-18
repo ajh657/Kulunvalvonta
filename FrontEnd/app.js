@@ -1,9 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
 const port = 8000;
 
 var api = require('./api.js');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.get('/', (req,res) => {
     console.log(req.ip);
@@ -28,6 +35,6 @@ app.get('/:web', (req,res) => {
     }
 });
 
-app.get('/api/:type', (req,res) => api(req,res));
+app.all('/api/:type', (req,res) => api(req,res));
 
 app.listen(port, () => console.log(`Listening port ${port}`));
