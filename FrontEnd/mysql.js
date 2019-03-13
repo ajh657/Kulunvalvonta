@@ -3,7 +3,7 @@ module.exports.GetPasswordHash = function (username) {
     var connection = GetConnection();
     connection.connect();
     var result;
-     connection.query('SELECT Password FROM henkilot where Username = ' +connection.escape(username),function (error, results, fields) {
+     connection.query('SELECT Password FROM henkilot where Username = ' + connection.escape(username),function (error, results, fields) {
         result = results[0];
     });
 
