@@ -409,3 +409,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+#Mysql Config
+mysql.json

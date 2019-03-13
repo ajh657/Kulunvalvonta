@@ -15,6 +15,5 @@ module.exports = function(req,res) {
 
 /** @type {Express.RequestHandler} */
 function login(req,res) {
-    console.log(req.body);
-    res.send({ status: 'SUCCESS' });
+    var Database = require('./mysql.js')
 }

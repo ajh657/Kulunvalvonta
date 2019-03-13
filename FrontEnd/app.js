@@ -4,13 +4,13 @@ const fs = require('fs');
 const app = express();
 const port = 8000;
 
-var api = require('./api.js');
+const api = require('./api.js');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.get('/', (req,res) => {
     console.log(req.ip);
@@ -37,4 +37,4 @@ app.get('/:web', (req,res) => {
 
 app.all('/api/:type', (req,res) => api(req,res));
 
-app.listen(port, () => console.log(`Listening port ${port}`));
+app.listen(port, () => console.log(`listening on port ${port}`));

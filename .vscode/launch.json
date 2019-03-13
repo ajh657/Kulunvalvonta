@@ -8,7 +8,13 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/FrontEnd\\app.js"
+            "program": "${workspaceFolder}/FrontEnd\\app.js",
+
+            "serverReadyAction": {
+                "pattern": "listening on port ([0-9]+)",
+                "uriFormat": "http://localhost:%s",
+                "action": "openExternally"
+              }
         }
     ]
 }
