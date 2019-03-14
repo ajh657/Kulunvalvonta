@@ -21,21 +21,8 @@ module.exports.GetPasswordHash = function (username) {
         password : Config.Password,
         database : Config.DB 
     });
-
-    //connection.connect();
-
+    
     const result = connection.query("SELECT Password FROM henkilot where Username = '" + username + "';");
     console.log(result);
     return result[0].Password;
-}
-
-function GetConnection(params) {
-    var Config = require('./Mysql.json');
-    const mysql = require('mysql');
-    return mysql.createConnection({
-        host     : Config.IP,
-        user     : Config.Username,
-        password : Config.Password,
-        database : Config.DB 
-    });
 }
