@@ -6,6 +6,8 @@ const port = 8000;
 
 const api = require('./api.js');
 
+console.log(process.env["PATH"]);
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 

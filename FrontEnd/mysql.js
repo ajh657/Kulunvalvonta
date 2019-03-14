@@ -26,3 +26,18 @@ module.exports.GetPasswordHash = function (username) {
     console.log(result);
     return result[0].Password;
 }
+
+module.exports.GetUserUuid = function(username) {
+    const mysql = require('sync-mysql');
+    var Config = require('./Mysql.json');
+    var connection = new mysql({
+        host     : Config.IP,
+        user     : Config.Username,
+        password : Config.Password,
+        database : Config.DB 
+    });
+    
+    const result = connection.query("SELECT uuid FROM henkilot where Username = '" + username + "';");
+    console.log(result);
+    return result[0].uuid;
+}

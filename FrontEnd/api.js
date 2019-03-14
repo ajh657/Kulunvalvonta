@@ -25,10 +25,29 @@ function login(req,res) {
 
     console.log(passwordHash);
     if (passwordHash == Database.GetPasswordHash(req.body.Username)) {
-        //res.cookie();
+        SetSession(req,res,req.body.Username)
         res.redirect('/');
     }else{
         res.sendStatus(403);
     }
 }
 
+/** @type {Express.RequestHandler} */
+function SetSession(req, res, user) {
+    var Database = require('./mysql.js');
+    var uuid = require('uuid-by-string');
+    var datastore = require('data-store');
+    var crypto = require('crypto');
+
+    var store = new datastore({ path: 'Sessions.json' })
+
+    const UserID = Database.GetUserUuid(user);
+
+    var now = Date.now();
+    var Expire = new Date(Date.now + 3600);
+
+    store.set(UserID, uuid(UserID + now + Expire  + req.ip + req.hostname));
+
+    res.cookie('LoginToken', store.get(UserID), {expires: Expire});
+
+}

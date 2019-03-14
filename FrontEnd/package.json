@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node --debug app.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,13 @@
   "homepage": "https://github.com/ajh657/Kulunvalvonta#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "data-store": "^3.1.0",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
     "npm": "^6.8.0",
     "sha256": "^0.2.0",
     "sync-mysql": "^3.0.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "uuid-by-string": "^2.1.0"
   }
 }
