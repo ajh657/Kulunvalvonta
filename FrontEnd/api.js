@@ -21,7 +21,7 @@ module.exports = function(req,res) {
 function login(req,res) {
     var Database = require('./mysql.js');
     var sha256 = require('sha256');
-    var passwordHash = sha256(req.body.Password)
+    var passwordHash = sha256(req.body.Password).toUpperCase();
 
     console.log(passwordHash);
     if (passwordHash == Database.GetPasswordHash(req.body.Username)) {
@@ -30,5 +30,4 @@ function login(req,res) {
     }else{
         res.sendStatus(403);
     }
-
 }
