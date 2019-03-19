@@ -1,18 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const fs = require('fs');
+const api = require('./api.js');
+
 const app = express();
 const port = 8000;
 
-const api = require('./api.js');
+app.use(cookieParser());
 
-console.log(process.env["PATH"]);
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.post(['/*','/'], (req,res) => {
+    res.send(404);
+});
 
 app.get('/', (req,res) => {
     console.log(req.ip);
