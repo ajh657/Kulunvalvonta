@@ -23,6 +23,7 @@ module.exports.GetPasswordHash = function (username) {
     });
     
     const result = connection.query("SELECT Password FROM henkilot where Username = '" + username + "';");
+    //SELECT Password FROM henkilot where Username = 'username';
     console.log(result);
     return result[0].Password;
 }

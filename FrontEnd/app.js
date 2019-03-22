@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 
-app.post(['/*','/'], (req,res) => {
+app.post('/', (req,res) => {
     res.send(404);
 });
 
