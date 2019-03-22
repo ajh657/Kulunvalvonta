@@ -43,6 +43,5 @@ function SetSession(req, res, user) {
     var Token =  uuid(UserID + now + req.ip + req.hostname);
 
     Database.LoginToken(UserID, Token);
-
     res.cookie('LoginToken', Token, {maxAge: ExpireTime});
-}
+} 
